@@ -11,7 +11,7 @@ def call(Map config = [:]) {
     def buildTag = env.BUILD_NUMBER
     def branchNamePlaceholder = ''
 
-    if(env.BRANCH_NAME != 'master') {
+    if(!(env.BRANCH_NAME.startsWith('v'))) {
         buildTag = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         branchNamePlaceholder = "-${env.BRANCH_NAME}"
 	    echo "test"
