@@ -1,4 +1,11 @@
+
+
 def call(String command) {
+	if(!(env.BRANCH_NAME =~ /^v([0-9]+\.[0-9]+\.[0-9]+)/)) {
+        buildTag = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+        branchNamePlaceholder = "-${env.BRANCH_NAME}"
+		echo env.BRANCH_NAME
+    }
 	if (command == "build") 
 	{
 		pipeline {
