@@ -10,7 +10,7 @@ def call(Map config = [:]) {
     def nexusRegistry = "slgramidlnexs60.infoftps.com/springio"
     def buildTag = env.BUILD_NUMBER
     def branchNamePlaceholder = ''
-
+    echo env.BRANCH_NAME
     if(!(env.BRANCH_NAME.startsWith("v"))) {
         buildTag = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         branchNamePlaceholder = "-${env.BRANCH_NAME}"
